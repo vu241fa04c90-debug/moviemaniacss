@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login - MovieManiacs</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>MovieManiacs</h1>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#movies">Movies</a>
+
+            <a href="reviews.html">Reviews</a>
+
+            <a href="diary.html">Diary</a>
+
+            <a href="profile.html">Profile</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- LOGIN -->
+
+    <main>
+
+        <section class="login-page">
+
+            <div class="login-card">
+
+                <h2>Login</h2>
+
+
+                <form id="loginForm">
+
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <p>
+                    This website uses browser
+                    localStorage for demo login.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 MovieManiacs. Built by Pranay.
+        </p>
+
+        <p>
+            Made with HTML & CSS.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                        .getElementById("name")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                const password =
+                    document
+                        .getElementById("password")
+                        .value;
+
+
+                if (
+                    name === "" ||
+                    email === "" ||
+                    password === ""
+                ) {
+
+                    alert(
+                        "Please fill in all fields."
+                    );
+
+                    return;
+
+                }
+
+
+                const user = {
+
+                    name: name,
+
+                    email: email
+
+                };
+
+
+                localStorage.setItem(
+                    "loggedInUser",
+                    JSON.stringify(user)
+                );
+
+
+                alert(
+                    "Login successful!"
+                );
+
+
+                window.location.href =
+                    "profile.html";
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

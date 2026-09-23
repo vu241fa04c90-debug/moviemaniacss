@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reviews - MovieManiacs</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>MovieManiacs</h1>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#movies">Movies</a>
+
+            <a href="reviews.html">Reviews</a>
+
+            <a href="diary.html">Diary</a>
+
+            <a href="profile.html">Profile</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- REVIEWS -->
+
+    <main>
+
+        <section class="reviews-page">
+
+            <h2>Movie Reviews</h2>
+
+            <div id="reviewsContainer"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 MovieManiacs. Built by Pranay.
+        </p>
+
+        <p>
+            Made with HTML & CSS.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+
+        function displayReviews() {
+
+            const container =
+                document.getElementById(
+                    "reviewsContainer"
+                );
+
+
+            const reviews =
+                JSON.parse(
+                    localStorage.getItem(
+                        "reviews"
+                    )
+                ) || [];
+
+
+            container.innerHTML = "";
+
+
+            if (
+                reviews.length === 0
+            ) {
+
+                container.innerHTML =
+                    "<p>No reviews yet. Be the first to review a movie!</p>";
+
+                return;
+
+            }
+
+
+            reviews
+                .slice()
+                .reverse()
+                .forEach(
+                    function (review) {
+
+                        const card =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        card.className =
+                            "review-card";
+
+
+                        const stars =
+                            "★".repeat(
+                                Number(
+                                    review.rating
+                                )
+                            ) +
+                            "☆".repeat(
+                                5 -
+                                Number(
+                                    review.rating
+                                )
+                            );
+
+
+                        card.innerHTML = `
+
+                            <h3>
+                                ${review.movie}
+                            </h3>
+
+                            <div class="review-rating">
+                                ${stars}
+                            </div>
+
+                            <p>
+                                ${review.text}
+                            </p>
+
+                            <p>
+                                <strong>
+                                    Reviewed by:
+                                </strong>
+                                ${review.name}
+                            </p>
+
+                            <p>
+                                ${review.date || ""}
+                            </p>
+
+                        `;
+
+
+                        container.appendChild(
+                            card
+                        );
+
+                    }
+                );
+
+        }
+
+
+        displayReviews();
+
+
+        window.addEventListener(
+            "pageshow",
+            displayReviews
+        );
+
+
+        window.addEventListener(
+            "storage",
+            displayReviews
+        );
+
+
+    </script>
+
+</body>
+
+</html>

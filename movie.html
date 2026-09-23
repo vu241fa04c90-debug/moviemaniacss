@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Movie - MovieManiacs</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>MovieManiacs</h1>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#movies">Movies</a>
+
+            <a href="reviews.html">Reviews</a>
+
+            <a href="diary.html">Diary</a>
+
+            <a href="profile.html">Profile</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MOVIE -->
+
+    <main>
+
+        <section class="movie-page">
+
+            <div class="movie-details">
+
+
+                <img
+                    id="moviePoster"
+                    src=""
+                    alt="Movie Poster"
+                >
+
+
+                <div class="movie-info">
+
+                    <h2 id="movieTitle">
+                        Movie
+                    </h2>
+
+                    <p id="movieYear">
+                    </p>
+
+                    <p id="movieDescription">
+                    </p>
+
+                    <div
+                        class="stars"
+                        id="movieStars"
+                    >
+                        ☆☆☆☆☆
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REVIEW FORM -->
+
+            <div class="review-form">
+
+                <h3>
+                    Write a Review
+                </h3>
+
+
+                <form id="reviewForm">
+
+
+                    <label for="reviewerName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reviewerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+
+                    <label for="rating">
+                        Rating
+                    </label>
+
+                    <select
+                        id="rating"
+                        required
+                    >
+
+                        <option value="">
+                            Select rating
+                        </option>
+
+                        <option value="1">
+                            1 Star
+                        </option>
+
+                        <option value="2">
+                            2 Stars
+                        </option>
+
+                        <option value="3">
+                            3 Stars
+                        </option>
+
+                        <option value="4">
+                            4 Stars
+                        </option>
+
+                        <option value="5">
+                            5 Stars
+                        </option>
+
+                    </select>
+
+
+                    <label for="reviewText">
+                        Review
+                    </label>
+
+                    <textarea
+                        id="reviewText"
+                        placeholder="Write your review..."
+                        required
+                    ></textarea>
+
+
+                    <button type="submit">
+                        Submit Review
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 MovieManiacs. Built by Pranay.
+        </p>
+
+        <p>
+            Made with HTML & CSS.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+
+        const movies = {
+
+            "Inception": {
+
+                year: "2010",
+
+                image: "images/inception.jpg",
+
+                description:
+                    "A thief who enters the dreams of others is given a chance to erase his past by performing an impossible mission."
+
+            },
+
+
+            "Se7en": {
+
+                year: "1995",
+
+                image: "images/se7en.jpg",
+
+                description:
+                    "Two detectives investigate a series of disturbing murders based around the seven deadly sins."
+
+            },
+
+
+            "Inglourious Basterds": {
+
+                year: "2009",
+
+                image: "images/Inglourious Basterds.jpg",
+
+                description:
+                    "A group of soldiers plan a dangerous mission against the Nazi leadership during World War II."
+
+            },
+
+
+            "12 Angry Men": {
+
+                year: "1957",
+
+                image: "images/12 angry men.jpg",
+
+                description:
+                    "A juror attempts to convince the others to reconsider their decision in a murder trial."
+
+            },
+
+
+            "Rangasthalam": {
+
+                year: "2018",
+
+                image: "images/ranagsthalam.jpg",
+
+                description:
+                    "A man returns to his village and becomes involved in a struggle against an oppressive local political system."
+
+            },
+
+
+            "Maharaja": {
+
+                year: "2024",
+
+                image: "images/maharaja.jpg",
+
+                description:
+                    "A barber searches for a mysterious possession after a violent incident changes his life."
+
+            },
+
+
+            "Ante Sundaraniki": {
+
+                year: "2022",
+
+                image: "images/ante sundraniki.jpg",
+
+                description:
+                    "A romantic comedy about two people from different religious backgrounds and the complications surrounding their relationship."
+
+            }
+
+        };
+
+
+        /*
+            GET MOVIE NAME
+        */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const movieName =
+            params.get("name") ||
+            "Inception";
+
+
+        const movie =
+            movies[movieName];
+
+
+        if (movie) {
+
+            document
+                .getElementById("movieTitle")
+                .textContent =
+                movieName;
+
+
+            document
+                .getElementById("movieYear")
+                .textContent =
+                "Year: " + movie.year;
+
+
+            document
+                .getElementById("moviePoster")
+                .src =
+                movie.image;
+
+
+            document
+                .getElementById("movieDescription")
+                .textContent =
+                movie.description;
+
+        }
+
+
+        /*
+            REVIEW FORM
+        */
+
+        const reviewForm =
+            document.getElementById(
+                "reviewForm"
+            );
+
+
+        reviewForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const reviewerName =
+                    document
+                        .getElementById(
+                            "reviewerName"
+                        )
+                        .value
+                        .trim();
+
+
+                const rating =
+                    Number(
+                        document
+                            .getElementById(
+                                "rating"
+                            )
+                            .value
+                    );
+
+
+                const reviewText =
+                    document
+                        .getElementById(
+                            "reviewText"
+                        )
+                        .value
+                        .trim();
+
+
+                if (
+                    reviewerName === "" ||
+                    rating === 0 ||
+                    reviewText === ""
+                ) {
+
+                    alert(
+                        "Please fill in all fields."
+                    );
+
+                    return;
+
+                }
+
+
+                const reviews =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "reviews"
+                        )
+                    ) || [];
+
+
+                const newReview = {
+
+                    movie: movieName,
+
+                    name: reviewerName,
+
+                    rating: rating,
+
+                    text: reviewText,
+
+                    date:
+                        new Date()
+                            .toLocaleDateString()
+
+                };
+
+
+                reviews.push(newReview);
+
+
+                localStorage.setItem(
+                    "reviews",
+                    JSON.stringify(reviews)
+                );
+
+
+                alert(
+                    "Review submitted successfully!"
+                );
+
+
+                reviewForm.reset();
+
+
+                renderRating();
+
+            }
+        );
+
+
+        /*
+            DISPLAY AVERAGE RATING
+        */
+
+        function renderRating() {
+
+            const reviews =
+                JSON.parse(
+                    localStorage.getItem(
+                        "reviews"
+                    )
+                ) || [];
+
+
+            const movieReviews =
+                reviews.filter(
+                    function (review) {
+
+                        return (
+                            review.movie ===
+                            movieName
+                        );
+
+                    }
+                );
+
+
+            const stars =
+                document.getElementById(
+                    "movieStars"
+                );
+
+
+            if (
+                movieReviews.length === 0
+            ) {
+
+                stars.textContent =
+                    "☆☆☆☆☆";
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+
+            movieReviews.forEach(
+                function (review) {
+
+                    total +=
+                        Number(
+                            review.rating
+                        );
+
+                }
+            );
+
+
+            const average =
+                total /
+                movieReviews.length;
+
+
+            const rounded =
+                Math.round(average);
+
+
+            stars.textContent =
+                "★".repeat(rounded) +
+                "☆".repeat(5 - rounded);
+
+        }
+
+
+        renderRating();
+
+
+    </script>
+
+</body>
+
+</html>

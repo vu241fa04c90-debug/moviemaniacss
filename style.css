@@ -1,0 +1,831 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #14181c;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+    background: #1c232b;
+
+    padding: 20px 50px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid #30363d;
+}
+
+header h1 {
+
+    margin: 0;
+
+    color: #00e054;
+
+    font-size: 28px;
+}
+
+nav {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+nav a {
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+nav a:hover {
+
+    color: #00e054;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    min-height: 70vh;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-container {
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+.search-container input {
+
+    width: 90%;
+
+    max-width: 600px;
+
+    padding: 14px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.search-container input:focus {
+
+    box-shadow:
+        0 0 0 2px #00e054;
+}
+
+
+/* =========================
+   MOVIE SECTION
+========================= */
+
+.movie-section {
+
+    max-width: 1200px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+}
+
+.movie-section h2 {
+
+    margin-bottom: 25px;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   MOVIE GRID
+========================= */
+
+.movie-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+
+/* =========================
+   MOVIE CARD
+========================= */
+
+.movie-card {
+
+    background: #1c232b;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.movie-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.4);
+}
+
+.movie-card img {
+
+    width: 100%;
+
+    height: 270px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.movie-card-content {
+
+    padding: 15px;
+}
+
+.movie-card h3 {
+
+    margin:
+        0 0 10px 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+.movie-card p {
+
+    margin: 5px 0;
+
+    color: #9da5ad;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+
+    color: #f5c518;
+
+    font-size: 18px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   MOVIE PAGE
+========================= */
+
+.movie-page {
+
+    max-width: 1000px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+}
+
+.movie-details {
+
+    display: flex;
+
+    gap: 40px;
+
+    background: #1c232b;
+
+    padding: 30px;
+
+    border-radius: 10px;
+}
+
+.movie-details img {
+
+    width: 280px;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+.movie-info {
+
+    flex: 1;
+}
+
+.movie-info h2 {
+
+    margin-top: 0;
+
+    font-size: 32px;
+}
+
+.movie-info p {
+
+    color: #b8c0c8;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   REVIEW FORM
+========================= */
+
+.review-form {
+
+    background: #1c232b;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    margin-top: 30px;
+}
+
+.review-form h3 {
+
+    margin-top: 0;
+}
+
+.review-form label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 8px;
+
+    color: #b8c0c8;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #11161b;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+.review-form textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.review-form button {
+
+    margin-top: 20px;
+
+    padding:
+        12px 25px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #00e054;
+
+    color: #000000;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.review-form button:hover {
+
+    background: #00b843;
+}
+
+
+/* =========================
+   REVIEWS PAGE
+========================= */
+
+.reviews-page {
+
+    max-width: 900px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+}
+
+.review-card {
+
+    background: #1c232b;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+}
+
+.review-card h3 {
+
+    margin-top: 0;
+
+    color: #ffffff;
+}
+
+.review-card p {
+
+    color: #b8c0c8;
+
+    line-height: 1.6;
+}
+
+.review-rating {
+
+    color: #f5c518;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   DIARY
+========================= */
+
+.diary-page {
+
+    max-width: 1000px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+}
+
+.diary-card {
+
+    background: #1c232b;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+}
+
+.diary-card h3 {
+
+    margin-top: 0;
+
+    color: #ffffff;
+}
+
+.diary-card p {
+
+    color: #b8c0c8;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-page {
+
+    max-width: 450px;
+
+    margin: 70px auto;
+
+    padding: 20px;
+}
+
+.login-card {
+
+    background: #1c232b;
+
+    padding: 40px;
+
+    border-radius: 10px;
+}
+
+.login-card h2 {
+
+    text-align: center;
+
+    margin-top: 0;
+
+    margin-bottom: 30px;
+}
+
+.login-card label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #b8c0c8;
+}
+
+.login-card input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 20px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #11161b;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+.login-card button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #00e054;
+
+    color: #000000;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.login-card button:hover {
+
+    background: #00b843;
+}
+
+.login-card p {
+
+    text-align: center;
+
+    color: #9da5ad;
+
+    margin-top: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-page {
+
+    max-width: 600px;
+
+    margin: 70px auto;
+
+    padding: 20px;
+}
+
+.profile-card {
+
+    background: #1c232b;
+
+    padding: 40px;
+
+    border-radius: 12px;
+}
+
+.profile-card h2 {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    color: #ffffff;
+}
+
+.profile-info {
+
+    margin-bottom: 25px;
+}
+
+.profile-info label {
+
+    display: block;
+
+    color: #8b949e;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.profile-info p {
+
+    margin: 0;
+
+    padding: 14px;
+
+    background: #11161b;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+.profile-info .status {
+
+    color: #00e054;
+}
+
+.logout-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #e50914;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+
+    background: #b20710;
+}
+
+.back-home {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: #00e054;
+
+    font-size: 15px;
+}
+
+.back-home:hover {
+
+    text-decoration: underline;
+}
+
+.not-logged {
+
+    text-align: center;
+}
+
+.not-logged a {
+
+    color: #00e054;
+}
+
+.not-logged a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #1c232b;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 50px;
+
+    border-top:
+        1px solid #30363d;
+}
+
+footer p {
+
+    margin: 5px 0;
+
+    color: #8b949e;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    nav {
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .movie-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+
+    .movie-card img {
+
+        height: 230px;
+    }
+
+
+    .movie-details {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .movie-details img {
+
+        width: 220px;
+
+        height: 320px;
+    }
+
+
+    .movie-info {
+
+        width: 100%;
+    }
+
+
+    .profile-page {
+
+        margin: 30px auto;
+    }
+
+
+    .profile-card {
+
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    header h1 {
+
+        font-size: 24px;
+    }
+
+
+    .movie-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .movie-card img {
+
+        height: 350px;
+    }
+
+
+    .login-card {
+
+        padding: 25px;
+    }
+
+
+    .profile-card {
+
+        padding: 20px;
+    }
+
+}
